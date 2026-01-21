@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rihan Mirza | Accounting & Finance Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@500;600&family=Source+Sans+Pro:wght@400&family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d3748;
+            --accent1: #10b981;
+            --accent2: #f59e0b;
+            --text-primary: #f7fafc;
+            --text-secondary: #cbd5e0;
+            --glass-bg: rgba(45, 55, 72, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1a1a 100%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--accent1);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader-text {
+            font-family: 'Monoton', cursive;
+            font-size: 1.5rem;
+            color: var(--accent1);
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(26, 26, 26, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Monoton', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent1);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding-top: 5rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--text-primary), var(--accent1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .hero-footer {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 4rem;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1a1a 100%);
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 20%, var(--primary) 70%);
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Typing Effect */
+        .typewriter {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid var(--accent1);
+            animation: typing 3s steps(30), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent1); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 10rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 10px;
+            flex: 1;
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Monoton', cursive;
+            font-size: 2.5rem;
+            color: var(--accent1);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: var(--text-secondary);
+        }
+
+        .skills {
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 0.8rem;
+            color: var(--accent1);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--accent1);
+            color: var(--primary);
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition);
+            border: 2px solid var(--accent1);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .download-btn:hover {
+            background: transparent;
+            color: var(--accent1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent1), var(--accent2));
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 2rem 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            float: right;
+            clear: both;
+        }
+
+        .timeline-item:nth-child(even) {
+            float: left;
+            clear: both;
+        }
+
+        .timeline-content {
+            position: relative;
+            padding: 2rem;
+            background: var(--secondary);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .timeline-icon {
+            font-size: 2.5rem;
+            color: var(--accent1);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-top-right-radius: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-top-left-radius: 0;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 15px;
+            font-family: 'Monoton', cursive;
+            font-size: 1.2rem;
+            color: var(--accent2);
+            font-weight: bold;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: 10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent1);
+        }
+
+        .timeline-company {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-responsibilities li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .timeline-responsibilities li:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent1);
+            border-radius: 50%;
+        }
+
+        /* Qualifications */
+        .qualifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .qualification-card {
+            background: var(--secondary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .qualification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .qualification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        }
+
+        .qualification-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent1);
+        }
+
+        .qualification-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent1);
+        }
+
+        .qualification-details {
+            color: var(--text-secondary);
+        }
+
+        /* Competencies */
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .competency-card {
+            background: var(--secondary);
+            border-radius: 15px;
+            padding: 2.2rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .competency-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent1);
+        }
+
+        .competency-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent1);
+        }
+
+        .competency-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent1);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-card:hover {
+            background: rgba(16, 185, 129, 0.05);
+            border-color: var(--accent1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--accent1);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 0.3rem;
+            color: var(--accent1);
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent1);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent2);
+            transform: translateY(-3px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-form .error {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .map-container {
+            height: 300px;
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1a1a 100%);
+            color: var(--text-secondary);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1a1a1a 100%);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 0.7rem;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent1);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 50%;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent1);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background: #128c7e;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--primary);
+                width: 100%;
+                height: calc(100vh - 80px);
+                gap: 2rem;
+                padding: 2rem;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                float: none;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                border-radius: 15px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 30px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Financial Precision</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container navbar">
+            <a href="#" class="logo">Ri<span>han</span></a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#timeline">Experience</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#competencies">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1>Rihan Mirza</h1>
+            <p class="typewriter">Accounting & Finance Professional | Tally Specialist | Financial Analyst</p>
+            <p>Transforming Numbers into Strategic Insights</p>
+            <div class="hero-footer">
+                <div class="location-badge">
+                    <i class="fas fa-map-pin"></i>Bharatpur, Rajasthan, India
+                </div>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Scroll Down</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Professional accounting and finance expert with a passion for precision and strategic financial solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Financial Precision, Strategic Vision</h2>
+                    <p>I'm a dedicated Accounting and Finance professional with a focus on accuracy, compliance, and strategic financial management. My expertise lies in transforming complex financial data into actionable business insights that drive growth and efficiency.</p>
+                    <p>With hands-on experience across manufacturing accounting, financial reporting, and Tally implementation, I deliver solutions that align with both operational realities and strategic business objectives.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-text">Months CA Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-text">Months Factory Accounting</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Tally</div>
+                            <div class="stat-text">Certified</div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h3>Core Expertise</h3>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Financial Analysis</h3>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Internal Auditing</h3>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Manufacturing Accounting</h3>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-top: 2rem;">
+                        <i class="fas fa-chart-line" style="font-size: 6rem; color: var(--accent1); opacity: 0.2;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Journey</h2>
+                <p>My path to financial excellence</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Nov 2024 - Present</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="timeline-title">Accountant</h3>
+                        <div class="timeline-company">Furniture Manufacturing Partnership Firm</div>
+                        <ul class="timeline-responsibilities">
+                            <li>Managed end-to-end financial accounting for manufacturing operations</li>
+                            <li>Implemented Tally ERP 9 for production cost tracking</li>
+                            <li>Prepared monthly financial reports for management decision-making</li>
+                            <li>Handled GST filings and tax compliance for manufacturing sector</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Jul - Nov 2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="timeline-title">Accounting Professional</h3>
+                        <div class="timeline-company">Under Chartered Accountant</div>
+                        <ul class="timeline-responsibilities">
+                            <li>Assisted in financial statement preparation and audit support</li>
+                            <li>Managed accounts payable and receivable processes</li>
+                            <li>Compiled financial data for statutory reporting</li>
+                            <li>Provided tax advisory support to clients</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Jun - Jul 2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-search-check"></i>
+                        </div>
+                        <h3 class="timeline-title">Assistant Internal Auditor</h3>
+                        <div class="timeline-company">Manufacturing Company</div>
+                        <ul class="timeline-responsibilities">
+                            <li>Conducted internal audits of financial processes</li>
+                            <li>Identified control weaknesses and recommended improvements</li>
+                            <li>Verified compliance with accounting policies and standards</li>
+                            <li>Prepared audit reports for management review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section id="qualifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Qualifications & Certifications</h2>
+                <p>Academic and professional credentials</p>
+            </div>
+            <div class="qualifications">
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="qualification-title">Education</h3>
+                    <p class="qualification-details">12th Commerce from Sony Academy School</p>
+                </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="qualification-title">Professional Certification</h3>
+                    <p class="qualification-details">6-Month Data Entry Diploma with Tally</p>
+                    <div style="background: var(--accent1); color: var(--primary); border-radius: 20px; display: inline-block; padding: 0.3rem 1rem; margin-top: 0.5rem; font-weight: bold;">Tally Certified Professional</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencies Section -->
+    <section id="competencies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Competencies</h2>
+                <p>Expertise areas that drive measurable results</p>
+            </div>
+            <div class="competencies">
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="competency-title">Financial Accounting</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3 class="competency-title">Tally ERP 9</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="competency-title">Internal Audit</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="competency-title">Manufacturing Accounting</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="competency-title">Financial Data Management</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="competency-title">Compliance & Reporting</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3 class="competency-title">GST & Tax Accounting</h3>
+                </div>
+                <div class="competency-card">
+                    <div class="competency-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="competency-title">Reconciliation & Analysis</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Let's discuss how I can contribute to your financial success</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-details">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+919521567921">+91 95215 67921</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Email</h3>
+                            <p><a href="mailto:mirzarihan112@gmail.com">mirzarihan112@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Location</h3>
+                            <p>Bharatpur, Rajasthan, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/rihanmirza" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" rows="5" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div id="messageStatus" style="margin-top: 1rem; text-align: center;"></div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Bharatpur Location</h3>
+                    <p>Map of Bharatpur, Rajasthan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rihan Mirza</h3>
+                    <p>Accounting and Finance Professional | Transforming Numbers into Strategic Insights</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#timeline">Experience</a></li>
+                        <li><a href="#qualifications">Qualifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Accounting Consultation</a></li>
+                        <li><a href="#">Tally Training</a></li>
+                        <li><a href="#">Bookkeeping Services</a></li>
+                        <li><a href="#">Audit Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Rihan Mirza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919521567921" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Preloader
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 2500);
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Mobile navigation toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+            this.classList.toggle('fa-times');
+            this.classList.toggle('fa-bars');
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Contact form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !phone || !message) {
+                document.getElementById('messageStatus').innerHTML = '<span style="color: #ef4444;">Please fill all fields</span>';
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('messageStatus').innerHTML = '<span style="color: #ef4444;">Please enter a valid email</span>';
+                return;
+            }
+            
+            // Validate phone number format (India)
+            const phoneRegex = /^\+?(\d{2})?[-.\s]?(\d{10})$/;
+            if (!phoneRegex.test(phone)) {
+                document.getElementById('messageStatus').innerHTML = '<span style="color: #ef4444;">Please enter a valid Indian phone number</span>';
+                return;
+            }
+            
+            // Simulate form submission
+            document.getElementById('messageStatus').innerHTML = '<span style="color: #10b981;">Message sent successfully! I will get back to you shortly.</span>';
+            document.getElementById('contactForm').reset();
+            
+            setTimeout(() => {
+                document.getElementById('messageStatus').innerHTML = '';
+            }, 5000);
+        });
+
+        // Add animation classes to elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('h2, h3, p, .stat, .skill-bar, .competency-card').forEach(el => {
+                el.classList.add('animate-on-scroll');
+            });
+        });
+
+        // Typewriter effect for hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const hero = document.querySelector('.typewriter');
+            const text = 'Accounting & Finance Professional | Tally Specialist | Financial Analyst';
+            let index = 0;
+            
+            function typeWriter() {
+                if (index < text.length) {
+                    hero.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
